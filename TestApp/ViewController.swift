@@ -29,6 +29,12 @@ class ViewController: UIViewController , UICollectionViewDataSource, UICollectio
     
     @IBAction func addPage(_ sender: Any) {
         
+        self.myCollectionView.performBatchUpdates({
+            let indexPath = IndexPath(row: self.pages.count, section: 0)
+            comments.append(CollectionViewCellCls) //add your object to data source first
+            self.collectionView?.insertItems(at: [indexPath])
+        }, completion: nil)
+        
     }
     
     @IBAction func deletePage(_ sender: Any) {
