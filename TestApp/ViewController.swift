@@ -7,8 +7,8 @@
 //
 
 import UIKit
+import WebKit
 
-<<<<<<< HEAD
 class ViewController: UIViewController , UICollectionViewDataSource, UICollectionViewDelegate {
     
    //  @IBOutlet var myCollectionView: UICollectionView!
@@ -27,14 +27,21 @@ class ViewController: UIViewController , UICollectionViewDataSource, UICollectio
     var collectionViewCellCls = CollectionViewCellCls()
     //let collectionViewCell: UICollectionViewCell = collectionViewCellCls.myWebView.load(NSURLRequest(url: Bundle.main.url(forResource: "random", withExtension: "html") as! URL) as URLRequest);
     var countOfCells : Int = 3
+   
     
     @IBAction func addPage(_ sender: Any) {
+        
+        self.myCollectionView.performBatchUpdates({
+            let indexPath = IndexPath(row: self.pages.count, section: 0)
+         //   comments.append(CollectionViewCellCls) //add your object to data source first
+           // self.collectionView?.insertItems(at: [indexPath])
+        }, completion: nil)
         /*let cellItems: NSMutableArray = self.myCollectionView.indexPathsForVisibleItems as! NSMutableArray
-        let currentpage: IndexPath = cellItems.object(at: 1) as! IndexPath
-        let tCell = myCollectionView.dequeueReusableCell(withReuseIdentifier: "wcell", for: currentpage) as! CollectionViewCellCls
-        tCell.myWebView.load(NSURLRequest(url: Bundle.main.url(forResource: "random", withExtension: "html") as! URL) as URLRequest);
-        cellItems.insert(tCell, at: currentpage.item+1)
-        self.myCollectionView.insertItems(at: [IndexPath(item: currentpage.item + 1, section: 0)])*/
+         let currentpage: IndexPath = cellItems.object(at: 1) as! IndexPath
+         let tCell = myCollectionView.dequeueReusableCell(withReuseIdentifier: "wcell", for: currentpage) as! CollectionViewCellCls
+         tCell.myWebView.load(NSURLRequest(url: Bundle.main.url(forResource: "random", withExtension: "html") as! URL) as URLRequest);
+         cellItems.insert(tCell, at: currentpage.item+1)
+         self.myCollectionView.insertItems(at: [IndexPath(item: currentpage.item + 1, section: 0)])*/
         
         
     }
@@ -92,8 +99,7 @@ class ViewController: UIViewController , UICollectionViewDataSource, UICollectio
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
        //return self.pages.count
-        
-       return countOfCells
+        return countOfCells
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -103,7 +109,6 @@ class ViewController: UIViewController , UICollectionViewDataSource, UICollectio
             
         
         cell.myWebView.load(NSURLRequest(url: Bundle.main.url(forResource: "random", withExtension: "html") as! URL) as URLRequest);
-        pages.insert(cell.myWebView, at: indexPath.item)
        
         }else{
             
@@ -115,19 +120,16 @@ class ViewController: UIViewController , UICollectionViewDataSource, UICollectio
         //return cell
     }
     
-=======
-class ViewController: UIViewController {
->>>>>>> parent of 24d86e6... first commit
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-<<<<<<< HEAD
         countOfCells = 3
         Next.isEnabled = true
         Previous.isEnabled = true
         Next.alpha = 1.0
         Previous.alpha = 1.0
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -143,8 +145,6 @@ class ViewController: UIViewController {
             Next.alpha = 0.5
             Previous.alpha = 0.5
         }
-=======
->>>>>>> parent of 24d86e6... first commit
     }
 
     override func didReceiveMemoryWarning() {
